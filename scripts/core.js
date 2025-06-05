@@ -1,40 +1,69 @@
-console.log("Copy-Paste ITR Running");
+console.log('Copy-Paste ITR content script called');
 
-// Enables copy-paste functionality on *.incometax.gov.in
-(function enableCopyPaste() {
-  const events = [
-    'copy', 'cut', 'paste',
-    'contextmenu', 'keydown', 'keypress', 'keyup'
-  ];
+function addUserSelectCSS() {
+    const css = document.createElement("style");
+    css.type = 'text/css';
+    css.innerText = `* {
+        -webkit-user-select: text !important;
+        -moz-user-select: text !important;
+        -ms-user-select: text !important;
+        user-select: text !important;
+    }`;
+    document.head.appendChild(css);
+}
 
-  function removeBlockers(element) {
-    events.forEach(event => {
-      element[`on${event}`] = null;
+function enableCopyPaste() {
+    console.log('enableCopyPaste called');
+    addUserSelectCSS();
+
+    // Only handle copy, cut, paste, and select events
+    const eventList = [
+        'copy', 'cut', 'paste', 'select', 'selectstart'
+    ];
+
+    eventList.forEach(event => {
+        document.addEventListener(event, e => {
+            e.stopPropagation();
+        }, true);
     });
-  }
 
-  function processAll() {
-    const elements = document.querySelectorAll('input, textarea, [contenteditable="true"]');
-    elements.forEach(removeBlockers);
-  }
+    // Remove user-select:none from all elements
+    document.querySelectorAll('*').forEach(el => {
+        if (el.style.userSelect === 'none') {
+            el.style.userSelect = 'auto';
+        }
+    });
 
-  // Initial run
-  processAll();
+    // Remove event handlers that block copy/paste/select
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.textContent = `
+        document.oncopy = null;
+        document.oncut = null;
+        document.onpaste = null;
+        document.onselectstart = null;
+        document.body.oncopy = null;
+        document.body.oncut = null;
+        document.body.onpaste = null;
+        document.body.onselectstart = null;
+    `;
+    document.body.appendChild(script);
 
-  // Also run when new elements are added
-  const observer = new MutationObserver(processAll);
-  observer.observe(document.body, { childList: true, subtree: true });
-})();
+    // Also clear handlers in content script context
+    document.body.oncopy = null;
+    document.body.oncut = null;
+    document.body.onpaste = null;
+    document.body.onselectstart = null;
 
-document.body.onselectstart = null;
-document.onselectstart = null;
+    document.oncopy = null;
+    document.oncut = null;
+    document.onpaste = null;
+    document.onselectstart = null;
 
-document.body.oncopy = null;
-document.body.oncut = null;
+    console.log('enableCopyPaste executed');
+}
 
-document.body.onpaste = null;
+// Always enable copy-paste on *.incometax.gov.in
+enableCopyPaste();
 
-document.oncontextmenu = null;
-document.body.oncontextmenu = null;
-
-console.log("Copy-Paste ITR Script Execution Successfully Complete.");
+console.log('Copy-Paste ITR Script Execution Successfully Complete.');
