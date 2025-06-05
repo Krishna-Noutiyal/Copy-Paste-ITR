@@ -1,11 +1,15 @@
 # Copy-Paste-ITR
 
-<img src="icons/icon128.png" alt="Copy-Paste ITR Icon" width="128" />
+<p align="center">
+    <img src="icons/icon128.png" alt="Copy-Paste ITR Icon" width="64" />
+</p>
 
 This Chrome extension enables copy, paste, and text selection functionality on the E-Filing portal of Income Tax Return (ITR) systems, where such actions are often restricted or disabled by default.
 
 ---
-<img src="assets/popup.png" alt="Copy-Paste-ITR Extension Popup Screenshot" width="350" />
+<p align="center">
+    <img src="assets/popup.png" alt="Copy-Paste-ITR Extension Popup Screenshot" width="350" />
+</p>
 
 ## Features
 
