@@ -27,6 +27,7 @@
     }
   ],
   "action": {
-    "default_title": "Enable Copy-Paste on ITR Portal"
+    "default_title": "Enable Copy-Paste on ITR Portal",
+    "default_popup": "index/popup.html"
   }
 }
