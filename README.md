@@ -1,10 +1,42 @@
 # Copy-Paste-ITR
 
-This repository provides a solution to enable copy-paste functionality in the E-Filing portal of Income Tax Return (ITR) systems, where such functionality may be restricted or disabled by default.
+<img src="icons/icon128.png" alt="Copy-Paste ITR Icon" width="128" />
+
+This Chrome extension enables copy, paste, and text selection functionality on the E-Filing portal of Income Tax Return (ITR) systems, where such actions are often restricted or disabled by default.
+
+---
+<img src="assets/popup.png" alt="Copy-Paste-ITR Extension Popup Screenshot" width="350" />
 
 ## Features
 
-- **Enables copy-paste**: Allows users to copy and paste text in fields where it is normally blocked.
-- **Easy to use**: Simple instructions to enable the feature in your browser.
-- **Non-intrusive**: Does not modify any sensitive data or interfere with the portal's core functionality.
+- **Enables copy, paste, and select:** Removes restrictions on copying, pasting, and selecting text in all fields.
+- **Automatic:** Works instantly on all pages under `*.incometax.gov.in`.
+- **Non-intrusive:** Does not modify sensitive data or interfere with the portal's core functionality.
+- **No other site is affected:** works only on `*.incometax.gov.in` therefore, does not affect the working of other websites copy-paste functionality such as Whatsapp,Gmail, Facebook, etc.
 
+
+## Installation
+
+1. **Clone or Download** this repository.
+2. Go to `chrome://extensions/` in your browser.
+3. Enable **Developer mode** (top right).
+4. Click **Load unpacked** and select the project folder.
+5. The extension icon will appear in your browser.
+
+---
+
+## Usage
+
+- Visit any page on `*.incometax.gov.in`.
+- Copy, paste, and select text as usual—even in fields where it was previously blocked.
+- Click the extension icon to see the popup status.
+
+---
+
+## License
+
+MIT License
+
+---
+
+**Enjoy hassle-free copy-pasting on the ITR E-Filing portal!**
