@@ -35,12 +35,5 @@ Copy Paste ITR is an extension that enables copy, paste, and text selection func
 - Copy, paste, and select text as usual—even in fields where it was previously blocked.
 - Click the extension icon to see the popup status.
 
----
-
-## License
-
-MIT License
-
----
 
 **Enjoy hassle-free copy-pasting on the ITR E-Filing portal!**
